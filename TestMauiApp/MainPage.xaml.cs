@@ -1,25 +1,17 @@
-﻿namespace TestMauiApp
+﻿using TestMauiApp.ViewModel;
+
+namespace TestMauiApp
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
 
-        public MainPage()
+        public MainPage(MainViewModel vm)
         {
             InitializeComponent();
+            // 메인페이지에 Context를 바인딩하자.
+            BindingContext = vm;
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
-        {
-            count++;
-
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
-        }
     }
 
 }
